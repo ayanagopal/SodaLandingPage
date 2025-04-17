@@ -11,19 +11,16 @@ $(document).ready(function () {
   
 
 
-
-
   $(document).ready(function () {
     function checkIfInView() {
       var faqSection = $('.faq-section');
-      var footerSection = $('#footer');  // Assuming your footer has the id "footer"
+      var footerSection = $('#footer'); 
       var footerImage = $("#footer_img");
       var windowHeight = $(window).height();
-      var faqOffset = faqSection.offset().top;  // FAQ section offset
-      var footerOffset = footerSection.offset().top;  // Footer section offset
+      var faqOffset = faqSection.offset().top; 
+      var footerOffset = footerSection.offset().top; 
       var scrollPosition = $(window).scrollTop();
       
-      // If the FAQ section is in view, animate FAQ questions
       if (scrollPosition + windowHeight > faqOffset) {
         $('.faq-question').each(function (index) {
           $(this).delay(200 * index).queue(function (next) {
@@ -36,7 +33,7 @@ $(document).ready(function () {
         });
       }
   
-      // If the footer section is in view, animate the footer image
+    
       if (scrollPosition + windowHeight > footerOffset) {
         footerImage.css({
           opacity: 0,
@@ -47,15 +44,12 @@ $(document).ready(function () {
           top: '0px'
         }, 1500);
         
-        // Unbind the scroll event once the image animation is triggered
+      
         $(window).off('scroll', checkIfInView);
       }
     }
   
-    // Trigger the function on scroll
     $(window).on('scroll', checkIfInView);
-    
-    // Also call the function once on page load in case the section is already in view
     checkIfInView();
   });
   
