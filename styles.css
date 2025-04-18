@@ -11,6 +11,10 @@
 body {
     font-family: "Nunito Sans";
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
 
 h3 {
